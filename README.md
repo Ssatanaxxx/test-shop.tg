@@ -36,7 +36,7 @@ npm install
 # Запуск development сервера
 npm run dev
 
-Демо версия
+Демо версия test-shop-tg.vercel.app
 
 # Или для production сборки
 npm run build
