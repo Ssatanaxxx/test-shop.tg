@@ -1,0 +1,26 @@
+.app {
+  min-height: 100vh;
+  background: #F1F1F1;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 600px;
+  padding: 0 5px; 
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding: 0 8px;
+  }
+}

@@ -1,0 +1,126 @@
+.product-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.product-card__image-container {
+  position: relative;
+  padding: 0;
+  padding-bottom: 12px;
+}
+
+.product-card__image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #f8f8f8;
+}
+
+.product-card__badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: bold;
+  color: white;
+}
+
+.product-card__badge--sale {
+  background: #ff4444;
+}
+
+.product-card__badge--new {
+  background: #00c853;
+}
+
+.product-card__info {
+  padding: 0 12px 12px;
+}
+
+.product-card__name {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  line-height: 1.3;
+  height: 36px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.product-card__pricing {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.product-card__price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+}
+
+.product-card__old-price {
+  font-size: 13px;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.product-card__button {
+  width: 100%;
+  padding: 8px 16px;
+  background: #cecece;
+  color: #292928;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.product-card__button:hover {
+  background: rgb(239, 239, 239) 1F1;
+}
+
+@media (max-width: 480px) {
+  .product-card__image {
+    height: 140px;
+  }
+
+  .product-card__name {
+    font-size: 13px;
+    height: 32px;
+  }
+
+  .product-card__price {
+    font-size: 15px;
+  }
+
+  .product-card__button {
+    padding: 7px 14px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 360px) {
+  .product-card__image {
+    height: 180px;
+  }
+
+  .product-card__info {
+    padding: 0 8px 8px;
+  }
+}

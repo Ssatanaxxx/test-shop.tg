@@ -1,0 +1,8 @@
+.hero__image {
+  border-radius: 20px;
+}
+
+.hero-container {
+  background-image: url("../../assets/dotsMore.svg");
+
+}

@@ -1,0 +1,73 @@
+.menu-navigation__list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-navigation__item {
+  display: flex;
+  align-items: center;
+}
+
+.menu-navigation__action {
+  display: flex;
+  align-items: center;
+}
+
+.menu-navigation__action-group {
+  display: flex;
+  align-items: center;
+  background: rgba(198, 198, 198, 0.3);
+  border-radius: 20px;
+}
+
+.menu-navigation__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 20px;
+  padding: 11px 14px;
+  gap: 5px;
+}
+
+.menu-navigation__link--telegram {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0px 0px 10px 0px rgba(48, 48, 48, 0.05);
+  background-color: #ffffff;
+  border-radius: 40px;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+.menu-navigation__label {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  color: #333333;
+}
+
+.menu-navigation__button:hover {
+  background: rgba(198, 198, 198, 0.5);
+  transform: translateY(-1px);
+}
+
+.menu-navigation__link--telegram:hover {
+  box-shadow: 0px 0px 15px 0px rgba(48, 48, 48, 0.1);
+  transform: translateY(-1px);
+}
+.menu-navigation__button:active {
+  transform: translateY(0);
+}

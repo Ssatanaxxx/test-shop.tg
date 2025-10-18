@@ -1,0 +1,46 @@
+.battery-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.battery-container {
+  width: 25px;
+  height: 13px;
+  display: flex;
+  position: relative;
+}
+
+.battery-body {
+  width: 23px;
+  height: 100%;
+  background: rgba(208, 208, 208, 0.4);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+}
+
+.battery-level {
+  height: 100%;
+  background: #000000;
+  transition: width 0.5s ease;
+  border-radius: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.battery-contact {
+  width: 2px;
+  height: 6px;
+  background: #000;
+  border-radius: 0 1px 1px 0;
+  align-self: center;
+}
+
+.battery-percent {
+  font-size: 10px;
+  font-weight: 700;
+  color: white;
+}

@@ -1,0 +1,111 @@
+.menu-item__container {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+  border: 1px solid rgba(108, 108, 108, 0.1);
+  backdrop-filter: blur(10px); /* Добавляем размытие для стеклянного эффекта */
+}
+
+.menu-item__list {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  padding: 16px 33px;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.menu-item__item {
+  position: relative;
+}
+
+.menu-item__item-btn {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+}
+
+.menu-item__item-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.menu-item__item-btn:active {
+  transform: translateY(0);
+}
+
+.menu-item__item-btn:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+.menu-item__item-btn--active {
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item__item-btn img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s ease;
+}
+
+.menu-item__item-btn:hover img {
+  transform: scale(1.1);
+}
+
+.menu-item__badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background-color: #ff4444;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 10px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 768px) {
+  .menu-item__list {
+    gap: 20px;
+    padding: 12px 20px;
+  }
+  
+  .menu-item__item-btn {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .menu-item__item-btn img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-item__list {
+    gap: 15px;
+    padding: 10px 15px;
+  }
+  
+  .menu-item__item-btn {
+    width: 36px;
+    height: 36px;
+  }
+}

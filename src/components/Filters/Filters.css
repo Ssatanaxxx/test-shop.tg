@@ -1,0 +1,245 @@
+.filters {
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.filters__categories-scroll {
+  overflow-x: auto;
+  padding: 14px 0;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 18px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.filters__categories-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.filters__categories {
+  display: flex;
+  gap: 10px;
+  padding: 0 15px;
+  min-width: max-content;
+}
+
+.filters__category {
+  flex-shrink: 0;
+  padding: 10px 20px;
+  border: 2px solid #f0f0f0;
+  border-radius: 22px;
+  background: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  color: #666;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filters__category:hover {
+  border-color: #000;
+  color: #000;
+}
+
+.filters__category--active {
+  background: #000;
+  color: white;
+  border-color: #000;
+}
+
+.filters__category--active:hover {
+  background: #333;
+  border-color: #333;
+}
+
+.filters__popular {
+  padding: 0 15px;
+}
+
+.filters__popular-title {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: #000;
+}
+
+.filters__popular-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-height: 72px;
+  overflow: hidden;
+}
+
+.filters__popular-tag {
+  padding: 8px 16px;
+  border: 1.5px solid #e8e8e8;
+  border-radius: 18px;
+  background: #f8f8f8;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  color: #555;
+  flex-shrink: 0;
+}
+
+.filters__popular-tag:hover {
+  background: #e8e8e8;
+  border-color: #d0d0d0;
+  color: #000;
+}
+
+@media (max-width: 480px) {
+  .filters {
+    margin-bottom: 18px;
+    padding: 0 10px;
+  }
+  
+  .filters__categories-scroll {
+    padding: 12px 0;
+    margin-bottom: 16px;
+  }
+  
+  .filters__categories {
+    gap: 8px;
+    padding: 0 10px;
+  }
+  
+  .filters__category {
+    padding: 8px 16px;
+    font-size: 13px;
+    min-height: 38px;
+    border-radius: 20px;
+  }
+  
+  .filters__popular {
+    padding: 0 10px;
+  }
+  
+  .filters__popular-title {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .filters__popular-tags {
+    gap: 6px;
+    max-height: 66px;
+  }
+  
+  .filters__popular-tag {
+    padding: 7px 14px;
+    font-size: 12px;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .filters {
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
+  
+  .filters__categories-scroll {
+    padding: 10px 0;
+    margin-bottom: 14px;
+  }
+  
+  .filters__categories {
+    gap: 6px;
+    padding: 0 8px;
+  }
+  
+  .filters__category {
+    padding: 7px 14px;
+    font-size: 12px;
+    min-height: 36px;
+    border-radius: 18px;
+  }
+  
+  .filters__popular {
+    padding: 0 8px;
+  }
+  
+  .filters__popular-title {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .filters__popular-tags {
+    gap: 5px;
+    max-height: 60px;
+  }
+  
+  .filters__popular-tag {
+    padding: 6px 12px;
+    font-size: 11px;
+    border-radius: 14px;
+  }
+}
+@media (max-width: 360px) {
+  .filters {
+    margin-bottom: 14px;
+    padding: 0 6px;
+  }
+  
+  .filters__categories-scroll {
+    padding: 8px 0;
+    margin-bottom: 12px;
+  }
+  
+  .filters__categories {
+    gap: 4px;
+    padding: 0 6px;
+  }
+  
+  .filters__category {
+    padding: 6px 12px;
+    font-size: 11px;
+    min-height: 34px;
+    border-radius: 16px;
+    border-width: 1.5px;
+  }
+  
+  .filters__popular {
+    padding: 0 6px;
+  }
+  
+  .filters__popular-title {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  
+  .filters__popular-tags {
+    gap: 4px;
+    max-height: 56px;
+  }
+  
+  .filters__popular-tag {
+    padding: 5px 10px;
+    font-size: 10px;
+    border-radius: 12px;
+    border-width: 1px;
+  }
+}
+
+.filters__category:focus-visible,
+.filters__popular-tag:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 1px;
+}
+
+.filters__category,
+.filters__popular-tag {
+  border: none;
+  font-family: inherit;
+}
