@@ -1,8 +1,110 @@
 .hero__image {
   border-radius: 20px;
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  margin: 0 auto;
+  display: block;
 }
 
 .hero-container {
   background-image: url("../../assets/dotsMore.svg");
+  background-size: cover;
+  background-position: center;
+}
 
+.swipe-container {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.dots-indicator {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background-color: white;
+  transform: scale(1.2);
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+  
+  .hero__image {
+    border-radius: 16px;
+  }
+  
+  .dots-indicator {
+    bottom: 14px;
+  }
+  
+  .dot {
+    width: 7px;
+    height: 7px;
+  }
+}
+
+@media (max-width: 480px) {
+  
+  .hero__image {
+    border-radius: 14px;
+  }
+  
+  .dots-indicator {
+    bottom: 12px;
+    gap: 6px;
+  }
+  
+  .dot {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+@media (max-width: 400px) {
+  
+  .hero__image {
+    border-radius: 12px;
+  }
+  
+  .dots-indicator {
+    bottom: 10px;
+    gap: 5px;
+  }
+  
+  .dot {
+    width: 5px;
+    height: 5px;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-container {
+    padding: 8px;
+  }
+  
+  .hero__image {
+    border-radius: 10px;
+  }
+  
+  .dots-indicator {
+    bottom: 8px;
+    gap: 4px;
+  }
 }
