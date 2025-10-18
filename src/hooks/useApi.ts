@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import type { Product, FilterParams, ApiMainResponse } from './types';
+import type { Product, FilterParams, ApiMainResponse } from '../types/types';
 
 export const useApi = () => {
   const [loading, setLoading] = useState(false);

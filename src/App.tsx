@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import UISearch from "./components/UISearch/UISearch";
 import Hero from "./components/Hero/Hero";
 import ProductGrid from "./components/ProductGrid/ProductGrid";
 import Filters from "./components/Filters/Filters";
 import Footer from "./components/Footer/Footer";
-import type { Product, Category, ApiMainResponse } from "./types/types";
+import type { Product, Category, ApiMainResponse, FilterParams } from "./types/types";
 import { useApi } from "./hooks/useApi";
 import "./App.css";
 import { NavigationBar } from "./components/NavigationBar/NavigationBar";
@@ -21,6 +21,7 @@ const App: React.FC = () => {
 
   const { loading, fetchMainProducts, fetchFilteredProducts } = useApi();
 
+  // Загрузка основных данных
   useEffect(() => {
     const loadMainProducts = async () => {
       try {
@@ -39,59 +40,92 @@ const App: React.FC = () => {
     loadMainProducts();
   }, [fetchMainProducts]);
 
-  // Поиск с дебаунсом
-  useEffect(() => {
-    const searchProducts = async () => {
-      if (searchQuery.trim()) {
-        const filters = {
-          search: searchQuery,
-          per_page: 50,
-          page: 1,
-        };
-        const filtered = await fetchFilteredProducts(filters);
-        setFilteredProducts(filtered);
-      } else {
-        setFilteredProducts(products);
-      }
+  const applyFilters = useCallback(async () => {
+    const filters: FilterParams = {
+      per_page: 50,
+      page: 1,
     };
 
-    const timeoutId = setTimeout(searchProducts, 300);
-    return () => clearTimeout(timeoutId);
-  }, [searchQuery, fetchFilteredProducts, products]);
-
-  // Фильтрация по категории
-  useEffect(() => {
-    if (selectedCategory !== null) {
-      const filters = {
-        category: selectedCategory,
-        per_page: 50,
-        page: 1,
-      };
-      const filterByCategory = async () => {
-        const filtered = await fetchFilteredProducts(filters);
-        setFilteredProducts(filtered);
-      };
-      filterByCategory();
-    } else {
-      setFilteredProducts(products);
+    if (searchQuery.trim()) {
+      filters.search = searchQuery;
     }
-  }, [selectedCategory, fetchFilteredProducts, products]);
+
+    if (selectedCategory !== null) {
+      filters.category = selectedCategory;
+    }
+
+    // Если нет фильтров - показываем все товары
+    if (!filters.search && !filters.category) {
+      setFilteredProducts(products);
+      return;
+    }
+
+    try {
+      const filtered = await fetchFilteredProducts(filters);
+      setFilteredProducts(filtered);
+    } catch (error) {
+      console.error("Failed to filter products:", error);
+      const locallyFiltered = products.filter(product => {
+        const matchesSearch = !searchQuery || 
+          product.name.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesCategory = selectedCategory === null || true; // Для простоты
+        return matchesSearch && matchesCategory;
+      });
+      setFilteredProducts(locallyFiltered);
+    }
+  }, [searchQuery, selectedCategory, fetchFilteredProducts, products]);
+
+  // Объединенный эффект для поиска и фильтрации по категории с дебаунсом
+  useEffect(() => {
+    const timeoutId = setTimeout(applyFilters, 300);
+    return () => clearTimeout(timeoutId);
+  }, [applyFilters]);
+
+  // Обработчик сброса фильтров
+  const handleCategoryChange = useCallback((categoryId: number | null) => {
+    setSelectedCategory(categoryId);
+    // Можно сбросить поиск при выборе категории, если нужно:
+    // if (categoryId !== null) {
+    //   setSearchQuery("");
+    // }
+  }, []);
+
+  // Обработчик поиска
+  const handleSearchChange = useCallback((query: string) => {
+    setSearchQuery(query);
+    // Можно сбросить категорию при поиске, если нужно:
+    // if (query.trim()) {
+    //   setSelectedCategory(null);
+    // }
+  }, []);
 
   return (
     <div className="app">
       <NavigationBar />
       <MenuNavigation />
-      <UISearch searchQuery={searchQuery} onSearchChange={setSearchQuery} />
+      
+      <UISearch 
+        searchQuery={searchQuery} 
+        onSearchChange={handleSearchChange} 
+      />
+      
       <Hero />
+      
       <div className="container">
         <Filters
           categories={categories}
           popularSearches={popularSearches}
           selectedCategory={selectedCategory}
-          onCategoryChange={setSelectedCategory}
+          onCategoryChange={handleCategoryChange}
+          onPopularSearchClick={handleSearchChange}
         />
-        <ProductGrid products={filteredProducts} loading={loading} />
+        
+        <ProductGrid 
+          products={filteredProducts} 
+          loading={loading}
+        />
       </div>
+      
       <Footer />
       <UIMenuItem />
     </div>
