@@ -1,73 +1,43 @@
-# React + TypeScript + Vite
+# 🛍️ Telegram Web App E-Commerce Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Современный интернет-магазин как Telegram Web App с адаптивным дизайном и TypeScript.
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/React-18.3-61dafb?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178c6?logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-5.0-646cff?logo=vite)
+![Telegram](https://img.shields.io/badge/Telegram-Web%20App-2AABEE?logo=telegram)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Особенности
 
-## React Compiler
+- **Telegram Web App** - полная интеграция с Telegram Mini Apps
+- **Адаптивный дизайн** - оптимизирован для 360px-600px (мобильные устройства)
+- **Свайп-галерея** - интерактивный просмотр изображений товаров
+- **Умные фильтры** - категории с горизонтальным скроллом
+- **Современный UI** - стеклянный эффект, плавные анимации
+- **TypeScript** - полная типизация для надежности
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Быстрый старт
 
-## Expanding the ESLint configuration
+### Предварительные требования
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Node.js 18+ 
+- npm, yarn или pnpm
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Установка и запуск
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+```bash
+# Клонирование репозитория
+git clone <your-repo-url>
+cd telegram-webapp-store
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# Установка зависимостей
+npm install
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+# Запуск development сервера
+npm run dev
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Демо версия
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# Или для production сборки
+npm run build
+npm run preview
